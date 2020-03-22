@@ -18,7 +18,7 @@ module.exports = (ctx) => {
         if (!image && imgList[i].base64Image) {
           image = Buffer.from(imgList[i].base64Image, 'base64')
         }
-        const postConfig = postOptions(image, imgList[i].fileName, userConfig.url, userConfig.key)
+        const postConfig = postOptions(image, imgList[i].fileName, userConfig.url, userConfig.key, userConfig.param||'source')
         let body = await ctx.Request.request(postConfig)
 
         delete imgList[i].base64Image
@@ -41,7 +41,7 @@ module.exports = (ctx) => {
     }
   }
 
-  const postOptions = (image, fileName, url, key) => {
+  const postOptions = (image, fileName, url, key, param) => {
     let headers = {
       'contentType': 'multipart/form-data',
       'User-Agent': 'PicGo'
@@ -56,9 +56,9 @@ module.exports = (ctx) => {
       headers: headers,
       formData: formData
     }
-    opts.formData['source'] = {}
-    opts.formData['source'].value = image
-    opts.formData['source'].options = {
+    opts.formData[param] = {}
+    opts.formData[param].value = image
+    opts.formData[param].options = {
       filename: fileName
     }
     return opts
@@ -85,6 +85,14 @@ module.exports = (ctx) => {
         required: true,
         message: '在图床获取的Key',
         alias: 'Key'
+      },
+      {
+        name: 'param',
+        type: 'input',
+        default: userConfig.param,
+        required: false,
+        message: '上传API的文件参数（可不填，默认为source）',
+        alias: 'Param'
       }
     ]
   }

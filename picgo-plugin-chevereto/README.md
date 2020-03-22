@@ -10,6 +10,8 @@ plugin for [PicGo](https://github.com/Molunerfinn/PicGo)
 
 - Url：使用Chevereto图床的API上传网址
 - Token：在图床获取到的Token
+- Param：上传API的文件参数
+- 魔改Chevereto请使用**web-uploader**插件
 - 如果出现问题请联系Weifeng
 - 博客：[Weifeng's Blog](https://wfblog.net/)
 
