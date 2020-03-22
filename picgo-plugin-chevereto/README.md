@@ -14,8 +14,8 @@ plugin for [PicGo](https://github.com/Molunerfinn/PicGo)
 - 博客：[Weifeng's Blog](https://wfblog.net/)
 
 ### 演示
-- 首页
+- 首页  
 ![](https://ae01.alicdn.com/kf/H8fa6b4db158b4b2b8e0c1578d5dce4676.png)
 
-- 设置
+- 设置  
 ![](https://ae01.alicdn.com/kf/Hf330843b35fe451e88b30dafbd2f1a66Z.png)
